@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "@hack-the-crisis/common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "types": "index",
+  "devDependencies": {
+    "@hack-the-crisis/tools": "*"
+  }
+}

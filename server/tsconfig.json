@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.base.json",
+
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "../bin/",
+    "sourceMap": true,
+
+    "typeRoots": ["./@types"]
+  },
+
+  "include": ["./**/*.ts", "db/index.js"],
+
+  "exclude": ["node_modules"]
+}

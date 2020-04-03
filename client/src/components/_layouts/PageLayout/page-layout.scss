@@ -1,0 +1,6 @@
+@use '../../../styles/values/dimensions' as dimensions;
+
+.page-layout {
+  margin: 0 auto;
+  padding: dimensions.$spacing--base;
+}

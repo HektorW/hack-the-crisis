@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "hack-the-crisis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "12.14.1",
+    "yarn": "^1.21.1"
+  },
+  "scripts": {
+    "start": "npm run start --prefix server",
+    "build": "cd client/ && npm run build",
+    "heroku-postbuild": "yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HektorW/hack-the-crisis.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/HektorW/hack-the-crisis/issues"
+  },
+  "homepage": "https://github.com/HektorW/hack-the-crisis#readme",
+  "workspaces": [
+    "client",
+    "common",
+    "server",
+    "tools"
+  ]
+}

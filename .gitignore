@@ -1,0 +1,9 @@
+.DS_STORE
+*.log
+
+.vscode/
+**/node_modules/
+
+client/dist
+
+.env*.local
