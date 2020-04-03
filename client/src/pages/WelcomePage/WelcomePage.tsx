@@ -13,10 +13,10 @@ export default function WelcomePage() {
         </span>
       </h1>
 
-      <Chart
+      {/* <Chart
         dataKey="temp"
         data={[{ temp: 36 }, { temp: 37 }, { temp: 37 }, { temp: 38 }]}
-      />
+      /> */}
     </PageLayout>
   )
 }
