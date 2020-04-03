@@ -41,7 +41,7 @@ const config: Configuration = {
     historyApiFallback: true,
     contentBase: join(__dirname, 'public'),
     proxy: {
-      '/api': 'http://localhost:4002'
+      '/api': 'http://localhost:4004'
     }
   },
 

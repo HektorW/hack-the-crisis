@@ -1,6 +1,16 @@
+@use '../../../styles/values/colors' as colors;
 @use '../../../styles/values/dimensions' as dimensions;
 
 .page-layout {
   margin: 0 auto;
-  padding: dimensions.$spacing--base;
+
+  &__header {
+    background-color: colors.$main--blue;
+    color: colors.$white;
+    padding: dimensions.$spacing--base;
+  }
+
+  &__content {
+    padding: dimensions.$spacing--base;
+  }
 }
