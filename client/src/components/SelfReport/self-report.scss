@@ -1,0 +1,6 @@
+.self-report {
+  &__form:not(:valid) > &__submit {
+    cursor: default;
+    opacity: 0.5;
+  }
+}
