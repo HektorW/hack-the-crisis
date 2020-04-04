@@ -5,6 +5,7 @@ import HealthCheckResult from '../HealthCheckResult'
 import DialogLayout from '../_layouts/DialogLayout'
 import { DialogLayoutProps } from '../_layouts/DialogLayout/DialogLayout'
 import { useDispatchSelfReport } from '../../hooks/selfReportsHooks'
+import HealthCheckNames from '../../enums/HealthCheckNames'
 
 interface HealthCheckDialogProps
   extends Omit<DialogLayoutProps, 'className' | 'children'> {}
@@ -15,9 +16,9 @@ export default function HealthCheckDialog({
   const [result, setResult] = useState(null)
   const dispatchSelfReport = useDispatchSelfReport();
 
-  function onHealthCheckResult(result: Record<string, number>) {
+  function onHealthCheckResult(result: Record<HealthCheckNames, number>) {
     // Store result
-    const entries = Object.entries(result).map(entry => ({
+    const entries = Object.entries(result).map((entry : [HealthCheckNames, number]) => ({
       questionId: entry[0],
       answerId: entry[1],
       answeredDate: new Date().toISOString()
