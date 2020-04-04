@@ -13,7 +13,7 @@ interface HealthCheckFormProps {
 
 export default function HealthCheckForm({ onResult }: HealthCheckFormProps) {
   return (
-    <ConversationForm onResult={onResult}>
+    <ConversationForm title="Fill in your health check" onResult={onResult}>
       <CoughQuestion />
       <BreathingProblemQuestion />
       <EnergyQuestion />

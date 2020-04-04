@@ -9,6 +9,8 @@ import './conversation-form.scss'
 import ProgressBar from '../../ProgressBar'
 
 interface ConversationFormProps {
+  title?: string
+
   nextLabel?: string
   previousLabel?: string
   viewResultLabel?: string
@@ -19,6 +21,8 @@ interface ConversationFormProps {
 }
 
 export default function ConversationForm({
+  title,
+
   nextLabel = 'Next',
   previousLabel = 'Previous',
   viewResultLabel = 'View result',
@@ -67,6 +71,8 @@ export default function ConversationForm({
         max={questionCount + 1}
         current={activeIndex + 1}
       />
+
+      {title && <h2 className="conversation-form__title">{title}</h2>}
 
       <div className="conversation-form__question">
         <ConversationFormContext.Provider

@@ -28,7 +28,7 @@ export default function ConversationFormQuestion({
 
   return (
     <div className={classNames('conversation-form-question', className)}>
-      <h2 className="conversation-form-question__heading">{heading}</h2>
+      <h3 className="conversation-form-question__heading">{heading}</h3>
 
       <div className="conversation-form-question__content">{children}</div>
     </div>
