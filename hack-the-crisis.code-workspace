@@ -54,7 +54,7 @@
     "createreactfoldercomponent.templateLanguage": "TypeScript",
     "createreactfoldercomponent.typeScriptStyledComponentTemplate": [
       "import React from 'react'",
-      "import styles from './$STYLE_COMPONENT_FILENAME'",
+      "import './$STYLE_COMPONENT_FILENAME'",
       "",
       "interface $COMPONENT_NAMEProps {",
       "}",

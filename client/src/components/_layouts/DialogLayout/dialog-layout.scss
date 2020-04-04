@@ -1,0 +1,48 @@
+@use '../../../styles/values/colors' as colors;
+@use '../../../styles/values/dimensions' as dimensions;
+
+.dialog-layout {
+  background-color: colors.$bg--base;
+  bottom: 0;
+  display: flex;
+  left: 0;
+  padding: 3rem 1rem 1rem;
+  position: fixed;
+  top: dimensions.$header-height;
+  width: 100%;
+
+  &--full {
+    top: 0;
+  }
+
+  &__close {
+    background: 0;
+    border: 0;
+    height: 1.5rem;
+    padding: 0;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 1.5rem;
+
+    &::after,
+    &::before {
+      background-color: colors.$black;
+      content: '';
+      display: block;
+      height: 75%;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      width: 3px;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}

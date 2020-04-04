@@ -1,7 +1,7 @@
 @use '../../../styles/values/colors' as colors;
 
-.primary-button {
-  background-color: colors.$main--blue;
+.secondary-button {
+  background-color: colors.$gray;
   border-radius: 30px;
   color: colors.$white;
   padding: 1rem;
@@ -15,12 +15,12 @@
   &:not(:disabled) {
     &:hover,
     &:focus {
-      background-color: lighten(colors.$main--blue, 2.5%);
+      background-color: lighten(colors.$gray, 2.5%);
     }
 
 
     &:active {
-      background-color: lighten(colors.$main--blue, 5%);
+      background-color: lighten(colors.$gray, 5%);
     }
   }
 }
