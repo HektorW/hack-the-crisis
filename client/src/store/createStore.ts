@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 
-import allReducers from '../modules/allReducers'
+import { rootReducer } from '../modules/allReducers'
 
 import { CoronaStore } from './store.types'
 
@@ -21,7 +21,7 @@ export default function createCoronaStore(): CoronaStore {
   const middleware = [thunk]
 
   const store = createStore(
-    combineReducers(allReducers),
+    rootReducer,
     composeEnhancers(applyMiddleware(...middleware))
   )
 
