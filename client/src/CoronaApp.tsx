@@ -7,7 +7,7 @@ import "firebase/auth";
 import 'firebase/firestore'
 
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
-import { createFirestoreInstance } from 'redux-firestore' 
+import { createFirestoreInstance } from 'redux-firestore'
 
 import Router from './components/_routing/Router'
 import { CoronaStore } from './store/store.types'
@@ -17,7 +17,7 @@ interface CoronaAppProps {
   store: CoronaStore
 }
 
-// TODO, should not be initialized here.
+// TODO, should it be initialized here?
 try {
   // Initialize firebase instance
   firebase.initializeApp(fbConfig);
@@ -29,16 +29,6 @@ try {
 
 
 function CoronaApp({ store }: CoronaAppProps) {
-  // TODO... fix
-  const rrfProps = {
-    firebase,
-    config: {
-      userProfile: "users"
-    },
-    dispatch: store.dispatch
-  };
-
-  
   return (
     <Provider store={store}>
       <ReactReduxFirebaseProvider
