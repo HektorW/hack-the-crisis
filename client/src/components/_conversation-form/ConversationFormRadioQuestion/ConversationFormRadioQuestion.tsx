@@ -52,6 +52,7 @@ export default function ConversationFormRadioQuestion<T = any>({
                   checked={selectedValue === option.value}
                   required
                   onChange={() => setSelectedValue(option.value)}
+                  onFocus={() => setSelectedValue(option.value)}
                 />
 
                 <span className="radio-question__option-text">

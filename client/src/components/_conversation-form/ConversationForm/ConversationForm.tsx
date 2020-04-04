@@ -8,6 +8,11 @@ import LeftArrow from '../../_svg/LeftArrow'
 import ConversationFormContext from './ConversationForm.context'
 
 import './conversation-form.scss'
+import useKeyPressHandler from '../../../hooks/useKeyPressHandler'
+import HealthCheckNames from '../../../enums/HealthCheckNames'
+
+const NEXT_KEYS = ['13', 'Enter', '39', 'ArrowRight'];
+const PREV_KEYS = ['8', 'Backspace', '37', 'ArrowLeft'];
 
 interface ConversationFormProps {
   title?: string
@@ -42,7 +47,18 @@ export default function ConversationForm({
   const isLastQuestion = activeIndex >= questionCount - 1
   const activeQuestion = childrenArray[activeIndex]
 
-  function setQuestionValue(name: string, value: any) {
+
+  function onKeyPressHandler({ key }) {
+    if (NEXT_KEYS.includes(String(key))) {
+      onNextClick();
+    }
+    if (PREV_KEYS.includes(String(key))) {
+      onPreviousClick();
+    }
+  }
+  useKeyPressHandler('keydown', onKeyPressHandler);
+
+  function setQuestionValue(name: HealthCheckNames, value: any) {
     if (questionValues[name] !== value) {
       setQuestionValues({ ...questionValues, [name]: value })
     }
@@ -54,10 +70,16 @@ export default function ConversationForm({
   }
 
   function onPreviousClick() {
+    if(activeIndex === 0) {
+      return
+    }
     setActiveIndex(Math.max(0, activeIndex - 1))
   }
 
   function onNextClick() {
+    if(!isActiveQuestionValid) {
+      return
+    }
     if (isLastQuestion) {
       onResult(questionValues)
     } else {

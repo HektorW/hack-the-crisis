@@ -11,7 +11,9 @@
     }
 
     &-input {
-      display: none;
+      opacity:0;
+      filter:alpha(opacity=0);
+      position:absolute
     }
 
     &-text {
@@ -22,7 +24,7 @@
       padding: 1rem 2rem;
     }
 
-    &-input:checked ~ &-text {
+    &-input:checked ~ &-text, &-input:focus ~ &-text {
       background-color: colors.$main--blue;
       color: colors.$white;
     }
