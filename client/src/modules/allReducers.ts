@@ -1,4 +1,4 @@
-import { firebaseReducer, FirebaseReducer, FirestoreReducer, Reducer } from "react-redux-firebase";
+import { firebaseReducer, FirebaseReducer, FirestoreReducer } from "react-redux-firebase";
 import { firestoreReducer } from 'redux-firestore'
 import { combineReducers } from 'redux';
 
@@ -10,6 +10,7 @@ interface UserProfile {
 export interface Question {
   answerId: number // Enum?
   questionId: number // Enum?
+  answeredDate: string
 }
 
 export interface ReportValue {
@@ -24,13 +25,14 @@ interface DBSchema {
   [name: string]: any
 }
 
-interface Test extends FirestoreReducer.Reducer {
+interface FireStoreProps extends FirestoreReducer.Reducer {
   ordered: DBSchema
+  data: DBSchema
 }
 
 interface RootState {
   firebase: FirebaseReducer.Reducer<UserProfile>
-  firestore: FirestoreReducer.Reducer
+  firestore: FireStoreProps
 }
 
 export const rootReducer = combineReducers<RootState>({
