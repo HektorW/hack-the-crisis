@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 
 import ProgressBar from '../../ProgressBar'
 import PrimaryButton from '../../_buttons/PrimaryButton'
-import SecondaryButton from '../../_buttons/SecondaryButton'
+import RoundButton from '../../_buttons/RoundButton'
+import LeftArrow from '../../_svg/LeftArrow'
 
 import ConversationFormContext from './ConversationForm.context'
 
@@ -84,12 +85,12 @@ export default function ConversationForm({
 
       <div className="conversation-form__buttons">
         {activeIndex > 0 && (
-          <SecondaryButton
+          <RoundButton
             className="conversation-form__previous"
             onClick={onPreviousClick}
           >
-            {previousLabel}
-          </SecondaryButton>
+            <LeftArrow className="conversation-form__previous-icon" />
+          </RoundButton>
         )}
 
         <PrimaryButton
@@ -98,6 +99,7 @@ export default function ConversationForm({
           onClick={onNextClick}
         >
           {isLastQuestion ? viewResultLabel : nextLabel}
+          <LeftArrow className="conversation-form__next-icon" />
         </PrimaryButton>
       </div>
     </div>

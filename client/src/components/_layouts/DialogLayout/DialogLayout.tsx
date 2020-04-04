@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import React from 'react'
 
 import './dialog-layout.scss'
+import RoundButton from '../../_buttons/RoundButton'
 
 export interface DialogLayoutProps {
   notInPageLayout?: boolean
@@ -28,7 +29,10 @@ export default function DialogLayout({
         className
       )}
     >
-      <button className="dialog-layout__close" onClick={onClose}></button>
+      <RoundButton
+        className="dialog-layout__close"
+        onClick={onClose}
+      ></RoundButton>
 
       {children}
     </div>

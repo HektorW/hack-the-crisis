@@ -1,0 +1,8 @@
+@use '../../../styles/values/colors' as colors;
+
+.round-button {
+  border: 1px solid colors.$border;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
