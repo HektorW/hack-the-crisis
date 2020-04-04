@@ -1,5 +1,5 @@
 import { firebaseReducer, FirebaseReducer, FirestoreReducer } from "react-redux-firebase";
-import { firestoreReducer } from 'redux-firestore' 
+import { firestoreReducer } from 'redux-firestore'
 import { combineReducers } from 'redux';
 
 
@@ -7,20 +7,32 @@ interface UserProfile {
   email: string
 }
 
-export interface TodoValue {
-  text: string
-  done: boolean
+export interface Question {
+  answerId: number // Enum?
+  questionId: number // Enum?
+  answeredDate: string
+}
+
+export interface ReportValue {
+  completedDate?: string | null
+  createdDate: string
+  questionaries: Question[]
 }
 
 // create schema for the DB
 interface DBSchema {
-  todos: TodoValue
+  selfreports: ReportValue[]
   [name: string]: any
 }
 
+interface FireStoreProps extends FirestoreReducer.Reducer {
+  ordered: DBSchema
+  data: DBSchema
+}
+
 interface RootState {
-  firebase: FirebaseReducer.Reducer<UserProfile, DBSchema>
-  firestore: FirestoreReducer.Reducer;
+  firebase: FirebaseReducer.Reducer<UserProfile>
+  firestore: FireStoreProps
 }
 
 export const rootReducer = combineReducers<RootState>({
