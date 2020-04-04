@@ -1,0 +1,18 @@
+@use '../../styles/values/colors' as colors;
+
+.progress-bar {
+  background-color: colors.$gray;
+  border-radius: 10px;
+  height: 10px;
+  position: relative;
+  overflow: hidden;
+
+  &__inner {
+    background-color: colors.$main--blue;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: width 0.3s ease-out;
+  }
+}

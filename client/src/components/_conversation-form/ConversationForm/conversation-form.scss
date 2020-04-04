@@ -3,6 +3,12 @@
   flex-direction: column;
   flex: 1;
 
+  &__progress {
+    margin-bottom: 3rem;
+    margin-top: -1.5rem;
+    width: calc(100% - 3rem);
+  }
+
   &__buttons {
     display: flex;
     margin-top: auto;

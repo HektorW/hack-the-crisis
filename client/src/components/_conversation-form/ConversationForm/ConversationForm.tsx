@@ -6,6 +6,7 @@ import SecondaryButton from '../../_buttons/SecondaryButton'
 import ConversationFormContext from './ConversationForm.context'
 
 import './conversation-form.scss'
+import ProgressBar from '../../ProgressBar'
 
 interface ConversationFormProps {
   nextLabel?: string
@@ -31,8 +32,9 @@ export default function ConversationForm({
   const [questionValues, setQuestionValues] = useState<Record<string, any>>({})
 
   const childrenArray = React.Children.toArray(children)
+  const questionCount = childrenArray.length
 
-  const isLastQuestion = activeIndex >= childrenArray.length - 1
+  const isLastQuestion = activeIndex >= questionCount - 1
   const activeQuestion = childrenArray[activeIndex]
 
   function setQuestionValue(name: string, value: any) {
@@ -60,6 +62,12 @@ export default function ConversationForm({
 
   return (
     <div className="conversation-form">
+      <ProgressBar
+        className="conversation-form__progress"
+        max={questionCount + 1}
+        current={activeIndex + 1}
+      />
+
       <div className="conversation-form__question">
         <ConversationFormContext.Provider
           value={{ values: questionValues, setQuestionValue }}
