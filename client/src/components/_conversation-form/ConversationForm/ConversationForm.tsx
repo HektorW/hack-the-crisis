@@ -75,6 +75,10 @@ export default function ConversationForm({
 
       {title && <h2 className="conversation-form__title">{title}</h2>}
 
+      <div className="conversation-form__question-index">
+        {activeIndex + 1}/{questionCount}
+      </div>
+
       <div className="conversation-form__question">
         <ConversationFormContext.Provider
           value={{ values: questionValues, setQuestionValue }}

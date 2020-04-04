@@ -16,6 +16,11 @@
     margin-bottom: 3rem;
   }
 
+  &__question-index {
+    color: colors.$text--gray;
+    margin-bottom: 1rem;
+  }
+
   &__buttons {
     display: flex;
     margin-top: auto;
@@ -33,7 +38,9 @@
   &__next {
     align-items: center;
     display: flex;
+    flex: 0;
     margin-left: auto;
+    white-space: nowrap;
 
     &-icon {
       fill: colors.$white;
