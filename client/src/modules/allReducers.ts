@@ -2,7 +2,7 @@ import { firebaseReducer, FirebaseReducer, FirestoreReducer } from "react-redux-
 import { firestoreReducer } from 'redux-firestore'
 import { combineReducers } from 'redux';
 import HealthCheckNames from "../enums/HealthCheckNames";
-import { EnergyAnswers, CoughAnswers, BreathingProblemAnsers, CoronaContactAnswers, BodyTemperatureAnswers, BreathingFrequencyAnswers } from "../enums/HealthCheckAnswers";
+import { EnergyAnswers, CoughAnswers, BreathingProblemAnsers } from "../enums/HealthCheckAnswers";
 
 
 interface UserProfile {
@@ -24,17 +24,19 @@ interface EnergyQuestion extends BaseQuestion<HealthCheckNames.Energy> {
   answerId: EnergyAnswers
 }
 interface CoronaContactQuestion extends BaseQuestion<HealthCheckNames.CoronaContact> {
-  answerId: CoronaContactAnswers
+  answerId: number
 }
 interface BodyTemperatureQuestion extends BaseQuestion<HealthCheckNames.BodyTemperature> {
-  answerId: BodyTemperatureAnswers
+  answerId: number
 }
-
 interface BreathingFrequencyQuestion extends BaseQuestion<HealthCheckNames.BreathingFrequency> {
-  answerId: BreathingFrequencyAnswers
+  answerId: number
+}
+interface PulseQuestion extends BaseQuestion<HealthCheckNames.Pulse> {
+  answerId: number
 }
 
-type AllQuestions = CoughingQuestion | BreathingProblemQuestion | EnergyQuestion | CoronaContactQuestion | BodyTemperatureQuestion | BreathingFrequencyQuestion
+export type AllQuestions = CoughingQuestion | BreathingProblemQuestion | EnergyQuestion | CoronaContactQuestion | BodyTemperatureQuestion | BreathingFrequencyQuestion | PulseQuestion
 
 export interface ReportValue {
   completedDate?: string | null

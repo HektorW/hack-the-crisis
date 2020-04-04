@@ -8,9 +8,11 @@ import ProfilePage from '../../../pages/ProfilePage'
 import NotFound from '../../../pages/_error/NotFound'
 import { useSelector } from 'react-redux'
 import { isLoaded, isEmpty } from 'react-redux-firebase'
+import { useGetUser } from '../../../hooks/useGetUser'
 
 function PrivateRoute({ children, ...rest }) {
-  const auth = useSelector((state: any) => state.firebase.auth);
+  const auth = useGetUser();
+
   return (
     <Route
       {...rest}
@@ -45,7 +47,7 @@ export default function Router() {
         <PrivateRoute path="/profile">
             <ProfilePage />
         </PrivateRoute>
-        
+
         <PrivateRoute path="/report" exact>
           <SelfReportPage />
         </PrivateRoute>

@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
-import PropTypes from 'prop-types'
-import { useSelector } from 'react-redux'
 import { useFirebase, isLoaded, isEmpty } from 'react-redux-firebase'
 import PageLayout from '../../components/_layouts/PageLayout'
+import { useGetUser } from '../../hooks/useGetUser';
 // import GoogleButton from 'react-google-button' // optional
 
 function LoginPage () {
   const firebase = useFirebase();
   const history = useHistory();
-  const auth = useSelector((state: any) => state.firebase.auth)
+  const auth = useGetUser()
 
   function loginWithGoogle() {
     return firebase.login({ provider: 'google', type: 'popup' })
