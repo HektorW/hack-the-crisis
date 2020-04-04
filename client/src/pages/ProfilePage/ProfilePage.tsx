@@ -1,18 +1,21 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useFirebase } from 'react-redux-firebase'
 import PageLayout from '../../components/_layouts/PageLayout'
-// import GoogleButton from 'react-google-button' // optional
+import { Link } from 'react-router-dom';
 
 function ProfilePage () {
-  const firebase = useFirebase();
-  const auth = useSelector((state: any) => state.firebase.auth)
+  const user = useSelector((state: any) => state.firebase.auth)
 
   return (
     <PageLayout title="Profile">
       <div>
-        <h2>User Profile</h2>
-           
+        <h2>Hej {user.displayName}!</h2>
+      </div>
+
+      <div>
+        <Link to={'/report'}>
+          Till frågeformulär
+        </Link>
       </div>
     </PageLayout>
   )
