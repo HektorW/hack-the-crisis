@@ -1,0 +1,12 @@
+@use './values/colors' as colors;
+
+html {
+  background-color: colors.$bg--base;
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}

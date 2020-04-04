@@ -1,0 +1,22 @@
+@use '../../../styles/values/colors' as colors;
+
+.primary-button {
+  background-color: colors.$main--blue;
+  border-radius: 30px;
+  color: colors.$white;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+
+  &:not(:disabled) {
+    &:hover,
+    &:focus {
+      background-color: lighten(colors.$main--blue, 2.5%);
+    }
+
+
+    &:active {
+      background-color: lighten(colors.$main--blue, 5%);
+    }
+  }
+}

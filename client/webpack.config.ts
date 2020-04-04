@@ -80,10 +80,10 @@ const config: Configuration = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName:
-                  env.NODE_ENV === 'production'
-                    ? '[hash:base64:8]'
-                    : '[local]--[hash:base64:5]'
+                localIdentName: '[local]'
+                // env.NODE_ENV === 'production'
+                //   ? '[hash:base64:8]'
+                //   : '[local]--[hash:base64:5]'
               }
             }
           },

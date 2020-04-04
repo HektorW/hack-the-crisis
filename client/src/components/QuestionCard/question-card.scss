@@ -1,1 +1,43 @@
-.question-card {}
+@use '../../styles/values/colors' as colors;
+@use '../../styles/values/typography' as typography;
+
+.question-card {
+  background-color: colors.$white;
+  padding: 1rem;
+  margin: 2rem 0;
+
+  &:first-of-type { margin-top: 0; }
+
+  &__text {
+    float: left;
+    font-weight: typography.$font-weight--bold;
+    font-size: 1.25rem;
+  }
+
+  &__list {
+    clear: left;
+    padding-top: 1.5rem;
+  }
+
+  &__option {
+    margin: 1rem 0;
+
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+
+    &-label {
+      background-color: rgba(colors.$black, 0.025);
+      cursor: pointer;
+      display: flex;
+      padding: 1rem;
+
+      &:hover {
+        background-color: rgba(colors.$black, 0.05);
+      }
+    }
+
+    &-text {
+      margin-left: 1rem;;
+    }
+  }
+}

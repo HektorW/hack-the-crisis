@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './question-card.scss'
+import './question-card.scss'
 
 interface QuestionCardProps {
   name: string
@@ -28,27 +28,34 @@ export default function QuestionCard({
   onChange
 }: QuestionCardProps) {
   return (
-    <fieldset>
-      <legend>{text}</legend>
+    <fieldset className="question-card">
+      <legend className="question-card__text">{text}</legend>
 
-      {options.map(option => {
-        const optionId = `${name}-${option.value}`
+      <ul className="question-card__list">
+        {options.map(option => {
+          const optionId = `${name}-${option.value}`
 
-        return (
-          <div key={option.value}>
-            <input
-              type="radio"
-              id={optionId}
-              name={name}
-              value={option.value}
-              required
-              onChange={() => onChange?.(value)}
-            />
+          return (
+            <li key={option.value} className="question-card__option">
+              <label className="question-card__option-label" htmlFor={optionId}>
+                <input
+                  className="question-card__option-input"
+                  type="radio"
+                  id={optionId}
+                  name={name}
+                  value={option.value}
+                  required
+                  onChange={() => onChange?.(value)}
+                />
 
-            <label htmlFor={optionId}>{option.text}</label>
-          </div>
-        )
-      })}
+                <span className="question-card__option-text">
+                  {option.text}
+                </span>
+              </label>
+            </li>
+          )
+        })}
+      </ul>
     </fieldset>
   )
 }

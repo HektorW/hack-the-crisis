@@ -1,6 +1,32 @@
+@use '../../styles/values/colors' as colors;
+
 .self-report {
-  &__form:not(:valid) > &__submit {
+  padding-bottom: 4rem;
+  position: relative;
+
+  &__submit {
+    &-container {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  &__form:not(:valid) > &__submit-container &__submit {
     cursor: default;
-    opacity: 0.5;
+    opacity: 0.25;
+  }
+
+  &__form:valid > &__submit-container {
+    background-color: colors.$white;
+    box-shadow: 0 -1px 2px rgba(0,0,0,0.025),
+                0 -2px 4px rgba(0,0,0,0.025),
+                0 -4px 8px rgba(0,0,0,0.025),
+                0 -8px 16px rgba(0,0,0,0.025),
+                0 -16px 32px rgba(0,0,0,0.025),
+                0 -32px 64px rgba(0,0,0,0.025);
+    padding: 1rem;
+    position: fixed;
   }
 }
