@@ -1,0 +1,29 @@
+@use '../../../../styles/values/colors' as colors;
+
+.pulse-question {
+  &__input {
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid colors.$main--blue;
+    color: colors.$main--blue;
+    font-size: 1.3rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  small {
+    color: colors.$text--gray;
+    display: block;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  &__timer {
+    margin-top: 3rem;
+  }
+}

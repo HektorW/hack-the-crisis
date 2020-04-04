@@ -1,0 +1,30 @@
+@use '../../styles/values/colors' as colors;
+
+.timer {
+  text-align: center;
+
+  &__output {
+    position: relative;
+    margin: 0 auto;
+    max-width: 100px;
+
+    &-circle {
+      fill: none;
+      stroke: colors.$black;
+      transform: rotate(-90deg);
+    }
+
+    &-text {
+      color: colors.$main--blue;
+      font-size: 1.5rem;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__button {
+    margin: 1rem auto 0;
+  }
+}

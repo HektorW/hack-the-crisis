@@ -2,10 +2,14 @@
 
 .progress-bar {
   background-color: colors.$main--blue-faded;
-  border-radius: 10px;
-  height: 10px;
+  height: 6px;
   position: relative;
   overflow: hidden;
+
+  &,
+  &__inner {
+    border-radius: 10px;
+  }
 
   &__inner {
     background-color: colors.$main--blue;

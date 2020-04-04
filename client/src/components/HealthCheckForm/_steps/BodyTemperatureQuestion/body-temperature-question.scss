@@ -43,7 +43,7 @@ $thumb-size: 40px;
   }
 
   &__legend {
-    color: #737387;
+    color: colors.$text--gray;
     display: flex;
     font-size: 0.8rem;
     justify-content: space-between;

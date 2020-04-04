@@ -7,6 +7,7 @@ import BreathingProblemQuestion from './_steps/BreathingProblemQuestion'
 import CoronaContactQuestion from './_steps/CoronaContactQuestion'
 import CoughQuestion from './_steps/CoughQuestion'
 import EnergyQuestion from './_steps/EnergyQuestion'
+import PulseQuestion from './_steps/PulseQuestion'
 
 interface HealthCheckFormProps {
   onResult: (values: Record<string, any>) => void
@@ -21,6 +22,7 @@ export default function HealthCheckForm({ onResult }: HealthCheckFormProps) {
       <CoronaContactQuestion />
 
       <BodyTemperatureQuestion />
+      <PulseQuestion />
     </ConversationForm>
   )
 }
