@@ -9,7 +9,7 @@ interface UserProfile {
 
 export interface Question {
   answerId: number // Enum?
-  questionId: number // Enum?
+  questionId: string // Enum?
   answeredDate: string
 }
 
