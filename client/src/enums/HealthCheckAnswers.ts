@@ -11,3 +11,17 @@ export enum BreathingProblemAnsers {
   SomeEffort,
   LargeEffort
 }
+
+export enum EnergyAnswers {
+  AsUsual,
+  Tired,
+  SomewhatBed,
+  MostlyBed,
+  StuckInBed
+}
+
+export enum CoronaContactAnswers {
+  No,
+  Yes,
+  DontKnow
+}

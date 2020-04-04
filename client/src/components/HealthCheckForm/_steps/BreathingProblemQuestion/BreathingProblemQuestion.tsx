@@ -1,12 +1,13 @@
 import React from 'react'
 
 import { BreathingProblemAnsers } from '../../../../enums/HealthCheckAnswers'
+import HealthCheckNames from '../../../../enums/HealthCheckNames'
 import ConversationFormRadioQuestion from '../../../_conversation-form/ConversationFormRadioQuestion'
 
 export default function BreathingProblemQuestion() {
   return (
     <ConversationFormRadioQuestion<BreathingProblemAnsers>
-      name="breating-problems"
+      name={HealthCheckNames.BreathingProblem}
       heading="Do you have trouble breathing?"
       options={[
         { text: 'No', value: BreathingProblemAnsers.No },

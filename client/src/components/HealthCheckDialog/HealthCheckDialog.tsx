@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import HealthCheckForm from '../HealthCheckForm'
+import HealthCheckResult from '../HealthCheckResult'
 import DialogLayout from '../_layouts/DialogLayout'
 import { DialogLayoutProps } from '../_layouts/DialogLayout/DialogLayout'
 
@@ -19,8 +20,7 @@ export default function HealthCheckDialog({
 
   return (
     <DialogLayout {...dialogLayoutProps}>
-      {/* {result && <HealthCheckResultView result={result} />} */}
-      {result && <div>Klaaaar</div>}
+      {result && <HealthCheckResult result={result} />}
 
       {!result && <HealthCheckForm onResult={onHealthCheckResult} />}
     </DialogLayout>
