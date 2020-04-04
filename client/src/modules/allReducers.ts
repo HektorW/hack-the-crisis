@@ -1,22 +1,45 @@
 import { firebaseReducer, FirebaseReducer, FirestoreReducer } from "react-redux-firebase";
 import { firestoreReducer } from 'redux-firestore'
 import { combineReducers } from 'redux';
+import HealthCheckNames from "../enums/HealthCheckNames";
+import { EnergyAnswers, CoughAnswers, BreathingProblemAnsers, CoronaContactAnswers, BodyTemperatureAnswers, BreathingFrequencyAnswers } from "../enums/HealthCheckAnswers";
 
 
 interface UserProfile {
   email: string
 }
 
-export interface Question {
-  answerId: number // Enum?
-  questionId: string // Enum?
+interface BaseQuestion<T extends HealthCheckNames> {
+  questionId: T
   answeredDate: string
 }
+
+interface CoughingQuestion extends BaseQuestion<HealthCheckNames.Coughing> {
+  answerId: CoughAnswers
+}
+interface BreathingProblemQuestion extends BaseQuestion<HealthCheckNames.BreathingProblem> {
+  answerId: BreathingProblemAnsers
+}
+interface EnergyQuestion extends BaseQuestion<HealthCheckNames.Energy> {
+  answerId: EnergyAnswers
+}
+interface CoronaContactQuestion extends BaseQuestion<HealthCheckNames.CoronaContact> {
+  answerId: CoronaContactAnswers
+}
+interface BodyTemperatureQuestion extends BaseQuestion<HealthCheckNames.BodyTemperature> {
+  answerId: BodyTemperatureAnswers
+}
+
+interface BreathingFrequencyQuestion extends BaseQuestion<HealthCheckNames.BreathingFrequency> {
+  answerId: BreathingFrequencyAnswers
+}
+
+type AllQuestions = CoughingQuestion | BreathingProblemQuestion | EnergyQuestion | CoronaContactQuestion | BodyTemperatureQuestion | BreathingFrequencyQuestion
 
 export interface ReportValue {
   completedDate?: string | null
   createdDate: string
-  questionaries: Question[]
+  questionaries: AllQuestions[]
 }
 
 // create schema for the DB

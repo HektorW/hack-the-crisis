@@ -3,6 +3,7 @@ import { AppState, ReportValue, Question } from '../modules/allReducers';
 import { useFirestore, useFirestoreConnect } from 'react-redux-firebase';
 import firebase from 'firebase';
 import { useCallback } from 'react';
+import HealthCheckNames from '../enums/HealthCheckNames';
 
 export function useGetUser() {
   const user = useSelector((state: AppState) => state.firebase.auth);
@@ -26,7 +27,7 @@ export function useGetSelfReport() {
 
   // TODO, make more beautiful
   if(selfReport && selfReport.length > 0) {
-    return selfReport[0]
+    return selfReport[0].questionaries.filter(x => x.questionId === HealthCheckNames.Coughing)
   }
 
   return null

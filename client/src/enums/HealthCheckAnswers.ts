@@ -25,3 +25,15 @@ export enum CoronaContactAnswers {
   Yes,
   DontKnow
 }
+
+
+// TODO
+export enum BodyTemperatureAnswers {
+  No
+}
+export enum PulseAnswers {
+  No
+}
+export enum BreathingFrequencyAnswers {
+  No
+}
