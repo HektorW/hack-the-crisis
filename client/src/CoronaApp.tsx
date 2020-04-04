@@ -23,11 +23,11 @@ const fbConfig = {
   messagingSenderId: "801431044519" 
 };
 
+// TODO, should not be initialized here.
 try {
   firebase.initializeApp(fbConfig);
-  console.log('testar')
 } catch (err) {
-  console.log('lol', err)
+  console.error('Could not initialize firebase', err)
 }
 
 
