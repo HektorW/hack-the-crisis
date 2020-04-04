@@ -1,7 +1,7 @@
 @use '../../styles/values/colors' as colors;
 
 .progress-bar {
-  background-color: colors.$gray;
+  background-color: colors.$faded--blue;
   border-radius: 10px;
   height: 10px;
   position: relative;

@@ -8,18 +8,23 @@
     &:last-child { margin-bottom: 0; }
 
     &-label {
-      background-color: rgba(colors.$black, 0.025);
-      cursor: pointer;
-      display: flex;
-      padding: 1rem;
+    }
 
-      &:hover {
-        background-color: rgba(colors.$black, 0.05);
-      }
+    &-input {
+      display: none;
     }
 
     &-text {
-      margin-left: 1rem;
+      border: 1px solid colors.$border;
+      border-radius: 2rem;
+      cursor: pointer;
+      display: inline-flex;
+      padding: 1rem 2rem;
+    }
+
+    &-input:checked ~ &-text {
+      background-color: colors.$main--blue;
+      color: colors.$white;
     }
   }
 }
