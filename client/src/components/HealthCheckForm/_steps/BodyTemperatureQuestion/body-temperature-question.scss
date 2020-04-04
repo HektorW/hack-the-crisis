@@ -1,1 +1,51 @@
-.body-temperature-question {}
+@use '../../../../styles/values/colors' as colors;
+
+$track-height: 4px;
+$thumb-size: 40px;
+
+.body-temperature {
+  &__range-container {
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    position: relative;
+    width: 100%;
+  }
+
+  &__input {
+    -webkit-appearance: none;
+    background: none;
+    width: 100%;
+
+    &::-webkit-slider-runnable-track {
+      background-color: colors.$main--blue-faded;
+      border-radius: 10px;
+      height: $track-height;
+      width: 100%;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background: linear-gradient(180deg, #7341f5 0%, #5028c8 50.97%, #320fa5 100%);
+      border: 0;
+      border-radius: 30px;
+      margin-top: -($thumb-size / 2 - $track-height / 2);
+      height: $thumb-size;
+      width: $thumb-size;
+    }
+  }
+
+  &__value {
+    color: colors.$main--blue;
+    font-size: 2rem;
+    position: absolute;
+    top: $thumb-size;
+    transform: translateX(-50%);
+  }
+
+  &__legend {
+    color: #737387;
+    display: flex;
+    font-size: 0.8rem;
+    justify-content: space-between;
+  }
+}

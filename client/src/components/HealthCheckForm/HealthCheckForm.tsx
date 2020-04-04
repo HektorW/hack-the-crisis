@@ -2,6 +2,7 @@ import React from 'react'
 
 import ConversationForm from '../_conversation-form/ConversationForm'
 
+import BodyTemperatureQuestion from './_steps/BodyTemperatureQuestion'
 import BreathingProblemQuestion from './_steps/BreathingProblemQuestion'
 import CoronaContactQuestion from './_steps/CoronaContactQuestion'
 import CoughQuestion from './_steps/CoughQuestion'
@@ -18,6 +19,8 @@ export default function HealthCheckForm({ onResult }: HealthCheckFormProps) {
       <BreathingProblemQuestion />
       <EnergyQuestion />
       <CoronaContactQuestion />
+
+      <BodyTemperatureQuestion />
     </ConversationForm>
   )
 }

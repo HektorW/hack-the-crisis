@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
+import ProgressBar from '../../ProgressBar'
 import PrimaryButton from '../../_buttons/PrimaryButton'
 import SecondaryButton from '../../_buttons/SecondaryButton'
 
 import ConversationFormContext from './ConversationForm.context'
 
 import './conversation-form.scss'
-import ProgressBar from '../../ProgressBar'
 
 interface ConversationFormProps {
   title?: string
