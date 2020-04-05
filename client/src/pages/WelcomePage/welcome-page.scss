@@ -1,3 +1,47 @@
-.welcome-page {
+@use '../../styles/values/colors' as colors;
 
+.welcome-page {
+  &__header {
+    display: flex;
+    margin-top: 2rem;
+  }
+
+  &__account {
+    &-container {
+      align-items: center;
+      border: 1px solid colors.$text--gray;
+      border-radius: 50%;
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      margin-left: auto;
+      width: 40px;
+    }
+  }
+
+  &__greeting {
+    color: colors.$text--gray;
+    font-size: 0.8rem;
+  }
+
+  &__headline {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    max-width: 270px;
+  }
+
+  &__check-in {
+    background-color: colors.$main--red;
+    margin-top: 2rem;
+    padding: 0.75rem 3rem;
+
+    &:hover,
+    &:focus-visible {
+      background-color: darken(colors.$main--red, 2.5%);
+    }
+
+    &:active {
+      background-color: darken(colors.$main--red, 5%);
+    }
+  }
 }

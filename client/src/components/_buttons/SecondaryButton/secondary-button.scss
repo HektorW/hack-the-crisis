@@ -12,15 +12,13 @@
     opacity: 0.25;
   }
 
-  &:not(:disabled) {
-    &:hover,
-    &:focus {
-      background-color: lighten(colors.$main--blue, 2.5%);
-    }
+  &:hover,
+  &:focus-visible {
+    background-color: lighten(colors.$main--blue, 2.5%);
+  }
 
 
-    &:active {
-      background-color: lighten(colors.$main--blue, 5%);
-    }
+  &:active {
+    background-color: lighten(colors.$main--blue, 5%);
   }
 }
