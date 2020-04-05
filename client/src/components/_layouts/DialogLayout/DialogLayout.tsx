@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import React, { useState, useEffect, useRef } from 'react'
 
 import './dialog-layout.scss'
+import useCallAfterNextRender from '../../../hooks/useCallAfterNextRender'
 import useOnMount from '../../../hooks/useOnMount'
 import useOnUnmount from '../../../hooks/useOnUnmount'
 import RoundButton from '../../_buttons/RoundButton'
@@ -24,13 +25,16 @@ export default function DialogLayout({
   onClose
 }: DialogLayoutProps) {
   const [hasMounted, setHasMounted] = useState(false)
+  const callAfterNextRender = useCallAfterNextRender()
 
   const unmountTimeoutId = useRef(0)
   const onCloseRef = useRef(onClose)
   onCloseRef.current = onClose
 
   useOnMount(() => {
-    setHasMounted(true)
+    callAfterNextRender(() => {
+      setHasMounted(true)
+    })
   })
 
   useOnUnmount(() => {
