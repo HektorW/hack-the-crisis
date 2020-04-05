@@ -26,13 +26,13 @@ export function answerToText(name: HealthCheckNames, answer: any) {
 export function coughAnswerToText(answer: CoughAnswers) {
   switch (answer) {
     case CoughAnswers.No:
-      return 'Not coughing'
+      return 'No coughing'
     case CoughAnswers.Sometimes:
       return 'Coughing sometimes'
     case CoughAnswers.Often:
       return 'Coughing often'
     case CoughAnswers.AllTheTime:
-      return 'Couging all the time'
+      return 'Coughing all the time'
   }
 }
 

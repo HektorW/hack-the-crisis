@@ -1,6 +1,6 @@
 export default function useHasQuery(queryKey: string, value?: string) {
   if (typeof URLSearchParams === 'undefined') {
-    return
+    return false
   }
 
   const urlSearchParams = new URLSearchParams(location.search)
