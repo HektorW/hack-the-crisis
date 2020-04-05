@@ -1,3 +1,48 @@
-.self-isolate-result {
+@use '../../../../styles/values/colors';
 
+.self-isolate-result {
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  p,
+  ul {
+    color: colors.$text--gray;
+    margin: 0.75rem 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  li {
+    margin: 0.25rem 0;
+  }
+
+  &__advice {
+    display: flex;
+    margin-bottom: 1.5rem;
+
+    &-index {
+      align-content: center;
+      color: colors.$main--blue;
+      border: 1px solid colors.$border;
+      border-radius: 50%;
+      display: flex;
+      flex: 0 0 auto;
+      height: 27px;
+      line-height: 1.2; // looks better in chrome
+      justify-content: center;
+      margin-right: 1rem;
+      width: 27px;
+    }
+
+    &-title {
+      color: colors.$text--body-lighter;
+    }
+
+    &-content {
+      font-size: 0.9rem;
+    }
+  }
 }

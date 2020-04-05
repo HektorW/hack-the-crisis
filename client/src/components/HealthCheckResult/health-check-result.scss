@@ -18,7 +18,7 @@
 
     h2 {
       font-size: 2rem;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
       max-width: 270px;
     }
 
@@ -45,7 +45,7 @@
   }
 
   &__repeat,
-  &__done {
+  &__show-advice {
     flex: 0;
     // padding: 0.75rem 1rem;
     flex: 0 0 auto;

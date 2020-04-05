@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { CoughAnswers } from '../../enums/HealthCheckAnswers'
 import HealthCheckNames from '../../enums/HealthCheckNames'
@@ -20,33 +20,52 @@ export default function HealthCheckResult({
 
   onRepeat
 }: HealthCheckResultProps) {
+  const [isAdviceVisible, setIsAdviceVisible] = useState(false)
+
   const closeDialog = useCloseDialog()
 
   // TODO : Some logic selecting right thing
   const ResultComponent = SelfIsolateResult
+
+  function onShowAdvice() {
+    setIsAdviceVisible(true)
+  }
 
   return (
     <div className="health-check-result">
       <div className="health-check-result__title">Your results</div>
 
       <div className="health-check-result__content">
-        <ResultComponent result={result} />
+        <ResultComponent result={result} showAdvice={isAdviceVisible} />
       </div>
 
       <div className="health-check-result__buttons">
-        <PrimaryButton
-          className="health-check-result__repeat"
-          onClick={onRepeat}
-        >
-          Repeat test
-        </PrimaryButton>
+        {!isAdviceVisible && (
+          <>
+            <PrimaryButton
+              className="health-check-result__repeat"
+              onClick={onRepeat}
+            >
+              Repeat test
+            </PrimaryButton>
 
-        <PrimaryButton
-          className="health-check-result__done"
-          onClick={closeDialog}
-        >
-          Done
-        </PrimaryButton>
+            <PrimaryButton
+              className="health-check-result__show-advice"
+              onClick={onShowAdvice}
+            >
+              Get advice
+            </PrimaryButton>
+          </>
+        )}
+
+        {isAdviceVisible && (
+          <PrimaryButton
+            className="health-check-result__done"
+            onClick={closeDialog}
+          >
+            Got it
+          </PrimaryButton>
+        )}
       </div>
     </div>
   )

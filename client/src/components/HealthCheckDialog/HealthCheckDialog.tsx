@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
 
+import {
+  CoughAnswers,
+  BreathingProblemAnsers,
+  EnergyAnswers
+} from '../../enums/HealthCheckAnswers'
 import HealthCheckNames from '../../enums/HealthCheckNames'
 import { useDispatchSelfReport } from '../../hooks/selfReportsHooks'
 import HealthCheckForm from '../HealthCheckForm'
@@ -14,7 +19,13 @@ interface HealthCheckDialogProps
 export default function HealthCheckDialog({
   ...dialogLayoutProps
 }: HealthCheckDialogProps) {
-  const [result, setResult] = useState(null)
+  // const [result, setResult] = useState(null)
+  const [result, setResult] = useState({
+    [HealthCheckNames.Coughing]: CoughAnswers.Often,
+    [HealthCheckNames.BreathingProblem]: BreathingProblemAnsers.LargeEffort,
+    [HealthCheckNames.Energy]: EnergyAnswers.MostlyBed
+  })
+
   const dispatchSelfReport = useDispatchSelfReport()
 
   function onHealthCheckResult(result: Record<HealthCheckNames, number>) {
