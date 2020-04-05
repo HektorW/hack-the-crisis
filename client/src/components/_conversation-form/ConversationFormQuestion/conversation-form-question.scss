@@ -1,3 +1,5 @@
+@use '../../../styles/values/colors' as colors;
+
 .conversation-form-question {
   &__heading {
     font-size: 1.5rem;
@@ -6,5 +8,18 @@
 
   &__content {
     padding: 2rem 0;
+  }
+
+  &__recent {
+    h2 {
+      font-weight: 800;
+      font-size: 1.3rem;
+      padding-top: 5px;
+      color: colors.$main--blue;
+    }
+
+    span {
+      font-weight: 800;
+    }
   }
 }
