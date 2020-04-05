@@ -120,7 +120,7 @@ export default function TimedCountingQuestion({
             {shouldShowCountdown && (
               <AutomaticTimer
                 className="timed-counting-question__countdown-timer"
-                timeS={isFastVersion ? 1 : 2}
+                timeS={isFastVersion ? 2 : 5}
                 onDone={onCountdownFinish}
               />
             )}
