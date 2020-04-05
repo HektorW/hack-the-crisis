@@ -11,8 +11,8 @@ import ConversationFormContext from './ConversationForm.context'
 
 import './conversation-form.scss'
 
-const NEXT_KEYS = ['13', 'Enter', '39', 'ArrowRight']
-const PREV_KEYS = ['8', '37', 'ArrowLeft']
+const NEXT_KEYS = ['Enter', 'ArrowRight']
+const PREV_KEYS = ['ArrowLeft']
 
 interface ConversationFormProps {
   title?: string
