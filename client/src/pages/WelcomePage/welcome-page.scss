@@ -3,9 +3,11 @@
 .welcome-page {
   &__header {
     display: flex;
-    margin-top: 2rem;
   }
 
+  &__login {
+    text-decoration: underline;
+  }
   &__account {
     &-container {
       align-items: center;
@@ -16,6 +18,11 @@
       justify-content: center;
       margin-left: auto;
       width: 40px;
+      overflow: hidden;
+
+      img {
+        max-width: 100%;
+      }
     }
   }
 

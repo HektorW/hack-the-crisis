@@ -3,10 +3,8 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import SelfReportPage from '../../../pages/SelfReportPage'
 import WelcomePage from '../../../pages/WelcomePage'
-import LoginPage from '../../../pages/LoginPage'
 import ProfilePage from '../../../pages/ProfilePage'
 import NotFound from '../../../pages/_error/NotFound'
-import { useSelector } from 'react-redux'
 import { isLoaded, isEmpty } from 'react-redux-firebase'
 import { useGetUser } from '../../../hooks/useGetUser'
 
@@ -22,7 +20,7 @@ function PrivateRoute({ children, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: "/",
               state: { from: location }
             }}
           />
@@ -38,10 +36,6 @@ export default function Router() {
       <Switch>
         <Route path="/" exact>
           <WelcomePage />
-        </Route>
-        <Route path="/login">
-            {/* Component containing a login which redirects to /protected. */}
-            <LoginPage />
         </Route>
 
         <PrivateRoute path="/profile">
