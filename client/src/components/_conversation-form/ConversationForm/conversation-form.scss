@@ -22,6 +22,12 @@
     margin-bottom: 1rem;
   }
 
+  &__question {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
   &__buttons {
     display: flex;
     margin-top: auto;

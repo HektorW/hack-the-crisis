@@ -1,6 +1,10 @@
 @use '../../../styles/values/colors' as colors;
 
 .conversation-form-question {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
   &__heading {
     font-size: 1.5rem;
     max-width: 270px;
@@ -11,9 +15,13 @@
   }
 
   &__recent {
+    font-size: 0.7rem;
+    margin-bottom: 0.75rem;
+    margin-top: auto;
+
     h2 {
       font-weight: 800;
-      font-size: 1.3rem;
+      font-size: 0.9rem;
       padding-top: 5px;
       color: colors.$main--blue;
     }
