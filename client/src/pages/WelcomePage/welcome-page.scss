@@ -51,4 +51,12 @@
       // background-color: darken(colors.$main--red, 5%);
     }
   }
+
+  &__content {
+    margin-top: 3rem;
+
+    > * {
+      margin: 1rem 0;
+    }
+  }
 }

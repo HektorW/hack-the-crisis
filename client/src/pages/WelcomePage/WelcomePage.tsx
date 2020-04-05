@@ -69,8 +69,8 @@ export default function WelcomePage() {
             Start check-in
           </SecondaryButton>
 
-          <div>
-            <Card>Some content</Card>
+          <div className="welcome-page__content">
+            {/* <Card>Some content</Card> */}
           </div>
 
           {showHealthCheck && (

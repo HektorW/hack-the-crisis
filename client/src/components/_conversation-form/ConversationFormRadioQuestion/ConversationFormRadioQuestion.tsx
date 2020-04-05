@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-
 import { Transition } from 'react-spring/renderprops'
+
 import ConversationFormQuestion from '../ConversationFormQuestion'
 import { ConversationFormQuestionProps } from '../ConversationFormQuestion/ConversationFormQuestion'
 import {
@@ -57,44 +57,44 @@ export default function ConversationFormRadioQuestion<T = any>({
       {...questionProps}
     >
       <ul className="radio-question__list">
-
-      <Transition
-          items={options} keys={item => item.value.toString()}
+        <Transition
+          items={options}
+          keys={item => item.value.toString()}
           trail={150}
-          from={{ opacity:0, transform: 'translate3d(0,-40px,0)' }}
-          enter={{ opacity:1, transform: 'translate3d(0,0px,0)' }}
+          from={{ opacity: 0, transform: 'translate3d(0,-40px,0)' }}
+          enter={{ opacity: 1, transform: 'translate3d(0,0px,0)' }}
           leave={{ transform: 'translate3d(0,-40px,0)' }}
-      >
-        {option => props => {
-          const optionId = `${name}-${option.value}`
-          return (
-            <li style={props} className="radio-question__option">
-              <label
-                className="radio-question__option-label"
-                htmlFor={optionId}
-              >
-                <input
-                  className="radio-question__option-input"
-                  type="radio"
-                  id={optionId}
-                  name={name}
-                  value={String(option.value)}
-                  checked={selectedValue === option.value}
-                  required
-                  onChange={() => setSelectedValue(option.value)}
-                  onFocus={() => setSelectedValue(option.value)}
-                  // onChange={() => onInputChange(option)}
-                  // onFocus={() => setSelectedValue(option.value)}
-                />
+        >
+          {option => props => {
+            const optionId = `${name}-${option.value}`
+            return (
+              <li style={props} className="radio-question__option">
+                <label
+                  className="radio-question__option-label"
+                  htmlFor={optionId}
+                >
+                  <input
+                    className="radio-question__option-input"
+                    type="radio"
+                    id={optionId}
+                    name={name}
+                    value={String(option.value)}
+                    checked={selectedValue === option.value}
+                    required
+                    onChange={() => setSelectedValue(option.value)}
+                    onFocus={() => setSelectedValue(option.value)}
+                    // onChange={() => onInputChange(option)}
+                    // onFocus={() => setSelectedValue(option.value)}
+                  />
 
-                <span className="radio-question__option-text">
-                  {option.text}
-                </span>
-              </label>
-            </li>
-          )
-        }}
-      </Transition>
+                  <span className="radio-question__option-text">
+                    {option.text}
+                  </span>
+                </label>
+              </li>
+            )
+          }}
+        </Transition>
       </ul>
     </ConversationFormQuestion>
   )
