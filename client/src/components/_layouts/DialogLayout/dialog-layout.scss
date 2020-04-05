@@ -8,12 +8,13 @@
   left: 0;
   padding: 3rem 1rem 1rem;
   position: fixed;
-  top: dimensions.$header-height;
+  top : 0;
+  // top: dimensions.$header-height;
   width: 100%;
 
-  &--full {
-    top: 0;
-  }
+  // &--full {
+  //   top: 0;
+  // }
 
   &__close {
     padding: 0;

@@ -18,11 +18,11 @@ export default function PageLayout({
 }: PageLayoutProps) {
   return (
     <div className={classNames(styles['page-layout'], className)}>
-      <header className={styles['page-layout__header']}>
+      {/* <header className={styles['page-layout__header']}>
         {title && (
           <h1 className={styles['page-layout__header-title']}>{title}</h1>
         )}
-      </header>
+      </header> */}
 
       <main className={styles['page-layout__content']}>{children}</main>
     </div>
