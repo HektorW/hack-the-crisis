@@ -7,6 +7,7 @@ import ConversationFormQuestion from '../ConversationFormQuestion'
 import { ConversationFormQuestionProps } from '../ConversationFormQuestion/ConversationFormQuestion'
 
 import './timed-counting-question.scss'
+import useHasQuery from '../../../hooks/useHasQuery'
 
 interface TimedCountingQuestionProps
   extends Omit<ConversationFormQuestionProps, 'value'> {
@@ -26,6 +27,8 @@ export default function TimedCountingQuestion({
 
   ...questionProps
 }: TimedCountingQuestionProps) {
+  const isFastVersion = useHasQuery('fast')
+
   const [hasStarted, setHasStarted] = useState(false)
   const [isCountdownFinished, setIsCountdownFinished] = useState(false)
   const [isTimerFinished, setIsTimerFinished] = useState(false)
@@ -117,7 +120,7 @@ export default function TimedCountingQuestion({
             {shouldShowCountdown && (
               <AutomaticTimer
                 className="timed-counting-question__countdown-timer"
-                timeS={5}
+                timeS={isFastVersion ? 1 : 2}
                 onDone={onCountdownFinish}
               />
             )}
@@ -125,7 +128,7 @@ export default function TimedCountingQuestion({
             {shouldShowTimer && (
               <RoundTimer
                 className="timed-counting-question__round-timer"
-                timeS={5}
+                timeS={isFastVersion ? 2 : 30}
                 run={isTimerRunning}
                 onDone={onTimerFinish}
               />

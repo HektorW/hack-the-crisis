@@ -1,7 +1,8 @@
 import {
   CoughAnswers,
   BreathingProblemAnsers,
-  EnergyAnswers
+  EnergyAnswers,
+  CoronaContactAnswers
 } from '../enums/HealthCheckAnswers'
 import HealthCheckNames from '../enums/HealthCheckNames'
 
@@ -13,6 +14,12 @@ export function answerToText(name: HealthCheckNames, answer: any) {
       return breathingProblemAnswerToText(answer)
     case HealthCheckNames.Energy:
       return energyAnswerToText(answer)
+    case HealthCheckNames.CoronaContact:
+      return coronaAnswerToText(answer)
+    case HealthCheckNames.BodyTemperature:
+      return `${answer}°C`
+    default:
+      return answer
   }
 }
 
@@ -54,5 +61,16 @@ export function energyAnswerToText(answer: EnergyAnswers) {
       return 'Stuck in bed, except for toilet'
     case EnergyAnswers.StuckInBed:
       return "Can't get out of bed"
+  }
+}
+
+export function coronaAnswerToText(answer: CoronaContactAnswers) {
+  switch (answer) {
+    case CoronaContactAnswers.No:
+      return 'No'
+    case CoronaContactAnswers.Yes:
+      return 'Yes'
+    case CoronaContactAnswers.DontKnow:
+      return "Don't know"
   }
 }

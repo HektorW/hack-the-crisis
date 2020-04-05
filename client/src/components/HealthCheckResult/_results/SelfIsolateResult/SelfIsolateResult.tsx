@@ -3,7 +3,8 @@ import React from 'react'
 import {
   CoughAnswers,
   BreathingProblemAnsers,
-  EnergyAnswers
+  EnergyAnswers,
+  CoronaContactAnswers
 } from '../../../../enums/HealthCheckAnswers'
 import HealthCheckNames from '../../../../enums/HealthCheckNames'
 import { answerToText } from '../../../../utils/answerToText'
@@ -28,6 +29,10 @@ export default function SelfIsolateResult({
         return value > BreathingProblemAnsers.No
       case HealthCheckNames.Energy:
         return value > EnergyAnswers.Tired
+      case HealthCheckNames.CoronaContact:
+        return value > CoronaContactAnswers.No
+      case HealthCheckNames.BodyTemperature:
+        return value > 37.5
     }
 
     return false

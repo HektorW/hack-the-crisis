@@ -4,8 +4,9 @@ import React from 'react'
 import { useSyncFormQuestionValue } from './ConversationFormQuestion.hooks'
 
 import './conversation-form-question.scss'
-import { useGetSelfReports } from '../../../hooks/selfReportsHooks'
 import HealthCheckNames from '../../../enums/HealthCheckNames'
+import { useGetSelfReports } from '../../../hooks/selfReportsHooks'
+import { answerToText } from '../../../utils/answerToText'
 
 export interface ConversationFormQuestionProps {
   name: HealthCheckNames
@@ -28,9 +29,7 @@ export default function ConversationFormQuestion({
 }: ConversationFormQuestionProps) {
   useSyncFormQuestionValue(name, value)
 
-  console.log(name)
   const reports = useGetSelfReports(name)
-  console.log(reports)
 
   return (
     <div className={classNames('conversation-form-question', className)}>
@@ -43,7 +42,7 @@ export default function ConversationFormQuestion({
           Last report:{' '}
           <span>{reports[reports.length - 1].answeredDate.split('T')[0]}</span>{' '}
           <br />
-          <h2>{reports[reports.length - 1].answerId}</h2>
+          <h2>{answerToText(name, reports[reports.length - 1].answerId)}</h2>
         </div>
       )}
     </div>
