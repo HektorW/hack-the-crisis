@@ -6,7 +6,6 @@ import {
   EnergyAnswers
 } from '../../../../enums/HealthCheckAnswers'
 import HealthCheckNames from '../../../../enums/HealthCheckNames'
-import stayHomeImageSrc from '../../../../res/stay-home-result.png'
 import { answerToText } from '../../../../utils/answerToText'
 import { questionNameToText } from '../../../../utils/nameToText'
 
