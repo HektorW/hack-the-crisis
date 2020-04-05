@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import ConversationFormQuestion from '../ConversationFormQuestion'
 import { ConversationFormQuestionProps } from '../ConversationFormQuestion/ConversationFormQuestion'
-import { usePreviousValueOnMount } from '../ConversationFormQuestion/ConversationFormQuestion.hooks'
+import {
+  usePreviousValueOnMount,
+  useGoToNextRef
+} from '../ConversationFormQuestion/ConversationFormQuestion.hooks'
 
 import './conversation-form-radio-question.scss'
 
@@ -25,7 +28,26 @@ export default function ConversationFormRadioQuestion<T = any>({
 }: ConversationFormRadioQuestionProps<T>) {
   const defaultValue = usePreviousValueOnMount<T>(name)
 
+  const goToNextRef = useGoToNextRef()
+
   const [selectedValue, setSelectedValue] = useState<T | null>(defaultValue)
+
+  useEffect(() => {
+    if (defaultValue !== null) {
+      return
+    }
+
+    if (selectedValue === null) {
+      return
+    }
+
+    const timeoutId = setTimeout(() => {
+      goToNextRef.current?.()
+    }, 300)
+
+    return () => clearTimeout(timeoutId)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedValue])
 
   return (
     <ConversationFormQuestion
@@ -53,6 +75,8 @@ export default function ConversationFormRadioQuestion<T = any>({
                   required
                   onChange={() => setSelectedValue(option.value)}
                   onFocus={() => setSelectedValue(option.value)}
+                  // onChange={() => onInputChange(option)}
+                  // onFocus={() => setSelectedValue(option.value)}
                 />
 
                 <span className="radio-question__option-text">

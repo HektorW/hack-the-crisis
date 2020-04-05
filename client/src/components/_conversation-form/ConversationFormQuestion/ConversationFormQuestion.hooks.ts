@@ -19,3 +19,11 @@ export function useSyncFormQuestionValue(name: string, value: any) {
     _updateValueRef.current(name, value)
   }, [name, value])
 }
+
+export function useGoToNextRef() {
+  const context = useContext(ConversationFormContext)
+  const goToNextRef = useRef(context.goToNext)
+  goToNextRef.current = context.goToNext
+
+  return goToNextRef
+}

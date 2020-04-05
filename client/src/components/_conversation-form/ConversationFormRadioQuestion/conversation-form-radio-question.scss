@@ -3,6 +3,7 @@
 .radio-question {
   &__option {
     margin: 1rem 0;
+    max-width: 270px;
 
     &:first-child { margin-top: 0; }
     &:last-child { margin-bottom: 0; }

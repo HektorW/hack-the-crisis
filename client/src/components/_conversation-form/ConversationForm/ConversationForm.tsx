@@ -11,8 +11,8 @@ import './conversation-form.scss'
 import useKeyPressHandler from '../../../hooks/useKeyPressHandler'
 import HealthCheckNames from '../../../enums/HealthCheckNames'
 
-const NEXT_KEYS = ['13', 'Enter', '39', 'ArrowRight'];
-const PREV_KEYS = ['8', 'Backspace', '37', 'ArrowLeft'];
+const NEXT_KEYS = ['13', 'Enter', '39', 'ArrowRight']
+const PREV_KEYS = ['8', 'Backspace', '37', 'ArrowLeft']
 
 interface ConversationFormProps {
   title?: string
@@ -47,16 +47,15 @@ export default function ConversationForm({
   const isLastQuestion = activeIndex >= questionCount - 1
   const activeQuestion = childrenArray[activeIndex]
 
-
   function onKeyPressHandler({ key }) {
     if (NEXT_KEYS.includes(String(key))) {
-      onNextClick();
+      onNextClick()
     }
     if (PREV_KEYS.includes(String(key))) {
-      onPreviousClick();
+      onPreviousClick()
     }
   }
-  useKeyPressHandler('keydown', onKeyPressHandler);
+  useKeyPressHandler('keydown', onKeyPressHandler)
 
   function setQuestionValue(name: HealthCheckNames, value: any) {
     if (questionValues[name] !== value) {
@@ -69,22 +68,27 @@ export default function ConversationForm({
     }
   }
 
+  function goToNext() {
+    if (!isActiveQuestionValid) {
+      return
+    }
+
+    if (isLastQuestion) {
+      onResult(questionValues)
+    } else {
+      setActiveIndex(activeIndex + 1)
+    }
+  }
+
   function onPreviousClick() {
-    if(activeIndex === 0) {
+    if (activeIndex === 0) {
       return
     }
     setActiveIndex(Math.max(0, activeIndex - 1))
   }
 
   function onNextClick() {
-    if(!isActiveQuestionValid) {
-      return
-    }
-    if (isLastQuestion) {
-      onResult(questionValues)
-    } else {
-      setActiveIndex(activeIndex + 1)
-    }
+    goToNext()
   }
 
   return (
@@ -103,7 +107,7 @@ export default function ConversationForm({
 
       <div className="conversation-form__question">
         <ConversationFormContext.Provider
-          value={{ values: questionValues, setQuestionValue }}
+          value={{ values: questionValues, setQuestionValue, goToNext }}
         >
           {activeQuestion}
         </ConversationFormContext.Provider>
