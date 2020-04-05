@@ -114,7 +114,7 @@ export default function SelfIsolateResult({
 
       {!showAdvice && (
         <>
-          <h3>Your symptons</h3>
+          <h3>Your symptoms</h3>
           <ul>
             {displayResults.map(key => (
               <li key={key}>{answerToText(key, result[key])}</li>

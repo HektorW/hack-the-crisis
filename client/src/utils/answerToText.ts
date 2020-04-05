@@ -69,8 +69,8 @@ export function coronaAnswerToText(answer: CoronaContactAnswers) {
     case CoronaContactAnswers.No:
       return 'No'
     case CoronaContactAnswers.Yes:
-      return 'Yes'
+      return 'Has met someone with Corona'
     case CoronaContactAnswers.DontKnow:
-      return "Don't know"
+      return "Don't know if met someone with Corona"
   }
 }
