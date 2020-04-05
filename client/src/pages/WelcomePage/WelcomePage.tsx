@@ -15,6 +15,8 @@ export default function WelcomePage() {
   const user = useGetUser()
   const [showHealthCheck, setShowHealthCheck] = useState(false)
 
+  const isSignedIn = !user.isAnonymous && !user.isEmpty
+
   function onShowHealthCheckClick() {
     setShowHealthCheck(true)
   }
@@ -25,30 +27,26 @@ export default function WelcomePage() {
 
   return (
     <PageLayout title="Home" className="welcome-page">
-      {!user && <div>You have to login</div>}
+      {!isSignedIn && <div>You have to login</div>}
 
-      {user && (
-        <>
-          <div className="welcome-page__header">
-            <div className="welcome-page__account-container">
-              <Account className="welcome-page__account-icon" />
-            </div>
-          </div>
+      <div className="welcome-page__header">
+        <div className="welcome-page__account-container">
+          <Account className="welcome-page__account-icon" />
+        </div>
+      </div>
 
-          <div className="welcome-page__greeting">Hi {user.displayName}!</div>
+      <div className="welcome-page__greeting">Hi {user.displayName}!</div>
 
-          <h2 className="welcome-page__headline">
-            It's time for your daily check-in
-          </h2>
+      <h2 className="welcome-page__headline">
+        It's time for your daily check-in
+      </h2>
 
-          <SecondaryButton
-            className="welcome-page__check-in"
-            onClick={onShowHealthCheckClick}
-          >
-            Start check-in
-          </SecondaryButton>
-        </>
-      )}
+      <SecondaryButton
+        className="welcome-page__check-in"
+        onClick={onShowHealthCheckClick}
+      >
+        Start check-in
+      </SecondaryButton>
 
       {showHealthCheck && (
         <HealthCheckDialog onClose={onCloseHealthCheckClick} />
