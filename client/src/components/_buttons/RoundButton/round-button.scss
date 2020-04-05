@@ -1,6 +1,7 @@
 @use '../../../styles/values/colors' as colors;
 
 .round-button {
+  background-color: colors.$white;
   border: 1px solid colors.$border;
   border-radius: 50%;
   height: 40px;

@@ -1,0 +1,6 @@
+@use '../../../styles/values/colors' as colors;
+
+.countdown-timer {
+  color: colors.$main--blue;
+  font-size: 2.5rem;
+}

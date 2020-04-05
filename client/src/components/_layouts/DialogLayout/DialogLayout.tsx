@@ -34,7 +34,7 @@ export default function DialogLayout({
         onClick={onClose}
       ></RoundButton>
 
-      {children}
+      <div className="dialog-layout__content">{children}</div>
     </div>
   )
 }

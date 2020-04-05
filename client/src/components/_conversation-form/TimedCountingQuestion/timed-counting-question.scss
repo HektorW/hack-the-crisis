@@ -1,0 +1,38 @@
+@use '../../../styles/values/colors' as colors;
+
+.timed-counting-question {
+  &__input {
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid colors.$main--blue;
+    color: colors.$main--blue;
+    font-size: 1.3rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  &__description {
+    margin-top: 2rem;
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    small {
+      color: colors.$text--gray;
+      display: block;
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__timers {
+    align-items: center;
+    display: flex;
+    height: 150px;
+    margin-top: 3rem;
+    justify-content: center;
+    text-align: center;
+  }
+}

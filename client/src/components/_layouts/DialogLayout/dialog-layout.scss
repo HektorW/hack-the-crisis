@@ -3,10 +3,10 @@
 
 .dialog-layout {
   background-color: colors.$bg--base;
-  bottom: 0;
   display: flex;
+  height: 100%;
   left: 0;
-  padding: 3rem 1rem 1rem;
+
   position: fixed;
   top : 0;
   // top: dimensions.$header-height;
@@ -42,5 +42,13 @@
     &::before {
       transform: translate(-50%, -50%) rotate(-45deg);
     }
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: auto;
+    padding: 3rem 1rem 1rem;
   }
 }

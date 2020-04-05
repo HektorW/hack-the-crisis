@@ -1,17 +1,25 @@
-@use '../../styles/values/colors' as colors;
+@use '../../../styles/values/colors' as colors;
 
-.timer {
+.round-timer {
   text-align: center;
+  width: 100%;
 
   &__output {
     position: relative;
     margin: 0 auto;
-    max-width: 100px;
+    max-width: 150px;
 
     &-circle {
       fill: none;
-      stroke: colors.$black;
       transform: rotate(-90deg);
+
+      &-background {
+        stroke: colors.$main--blue-faded;
+      }
+
+      &-progress {
+        stroke: colors.$main--blue;
+      }
     }
 
     &-text {

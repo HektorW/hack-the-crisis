@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import HealthCheckNames from '../../../enums/HealthCheckNames'
+import useKeyPressHandler from '../../../hooks/useKeyPressHandler'
 import ProgressBar from '../../ProgressBar'
 import PrimaryButton from '../../_buttons/PrimaryButton'
 import RoundButton from '../../_buttons/RoundButton'
@@ -8,8 +10,6 @@ import LeftArrow from '../../_svg/LeftArrow'
 import ConversationFormContext from './ConversationForm.context'
 
 import './conversation-form.scss'
-import useKeyPressHandler from '../../../hooks/useKeyPressHandler'
-import HealthCheckNames from '../../../enums/HealthCheckNames'
 
 const NEXT_KEYS = ['13', 'Enter', '39', 'ArrowRight']
 const PREV_KEYS = ['8', 'Backspace', '37', 'ArrowLeft']

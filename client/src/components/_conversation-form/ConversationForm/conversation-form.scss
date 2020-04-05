@@ -6,18 +6,19 @@
   flex: 1;
 
   &__progress {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     margin-top: -1rem;
     width: calc(100% - 4rem);
   }
 
   &__title {
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
   }
 
   &__question-index {
     color: colors.$text--gray;
+    font-size: 0.75rem;
     margin-bottom: 1rem;
   }
 

@@ -3,14 +3,12 @@ import React from 'react'
 import HealthCheckNames from '../../../../enums/HealthCheckNames'
 import TimedCountingQuestion from '../../../_conversation-form/TimedCountingQuestion'
 
-import './pulse-question.scss'
-
-export default function PulseQuestion() {
+export default function BreathingFrequencyQuestion() {
   return (
     <TimedCountingQuestion
-      heading="Determining Heart Rate"
-      name={HealthCheckNames.Pulse}
-      inputPlaceholder="Enter your pulse"
+      heading="Determining breathing frequency"
+      name={HealthCheckNames.BreathingFrequency}
+      inputPlaceholder="Enter your breathing frequenecy"
     >
       <p>1. Try to be as relaxed as possible</p>
 
