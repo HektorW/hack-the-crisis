@@ -39,6 +39,7 @@ export default function TimedCountingQuestion({
   const shouldShowStart = !hasStarted
   const shouldShowCountdown = hasStarted && !isCountdownFinished
   const shouldShowTimer = hasStarted && !isTimerFinished
+  // const shouldShowTimer = true
   const shouldShowInput = hasStarted && isCountdownFinished && isTimerFinished
   // const shouldShowRestart = hasStarted && isCountdownFinished && isTimerFinished
 
@@ -112,7 +113,10 @@ export default function TimedCountingQuestion({
 
           <div className="timed-counting-question__timers">
             {shouldShowStart && (
-              <SecondaryButton onClick={onStartClick}>
+              <SecondaryButton
+                className="timed-counting-question__start"
+                onClick={onStartClick}
+              >
                 Start timer
               </SecondaryButton>
             )}

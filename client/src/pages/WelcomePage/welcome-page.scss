@@ -38,17 +38,17 @@
   }
 
   &__check-in {
-    background-color: colors.$main--red;
+    // background-color: colors.$main--red;
     margin-top: 2rem;
     padding: 0.75rem 3rem;
 
     &:hover,
     &:focus-visible {
-      background-color: darken(colors.$main--red, 2.5%);
+      // background-color: darken(colors.$main--red, 2.5%);
     }
 
     &:active {
-      background-color: darken(colors.$main--red, 5%);
+      // background-color: darken(colors.$main--red, 5%);
     }
   }
 }

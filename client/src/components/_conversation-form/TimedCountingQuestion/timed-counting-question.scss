@@ -51,6 +51,7 @@
   }
 
   &__countdown-timer {
+    animation: fade-in .3s ease-out;
     left: 50%;
     position: absolute;
     top: 50%;
@@ -58,7 +59,7 @@
   }
 
   &__round-timer {
-    animation: fade-in .2s ease-out;
+    animation: fade-in .3s ease-out;
   }
 
   &__result-text {
