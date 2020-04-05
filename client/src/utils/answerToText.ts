@@ -1,6 +1,7 @@
 import {
   CoughAnswers,
-  BreathingProblemAnsers
+  BreathingProblemAnsers,
+  EnergyAnswers
 } from '../enums/HealthCheckAnswers'
 import HealthCheckNames from '../enums/HealthCheckNames'
 
@@ -10,6 +11,8 @@ export function answerToText(name: HealthCheckNames, answer: any) {
       return coughAnswerToText(answer)
     case HealthCheckNames.BreathingProblem:
       return breathingProblemAnswerToText(answer)
+    case HealthCheckNames.Energy:
+      return energyAnswerToText(answer)
   }
 }
 
@@ -36,5 +39,20 @@ export function breathingProblemAnswerToText(answer: BreathingProblemAnsers) {
       return 'Breathing with some effort'
     case BreathingProblemAnsers.LargeEffort:
       return 'Breathing with large effort'
+  }
+}
+
+export function energyAnswerToText(answer: EnergyAnswers) {
+  switch (answer) {
+    case EnergyAnswers.AsUsual:
+      return 'Energy as usual'
+    case EnergyAnswers.Tired:
+      return 'A bit tired'
+    case EnergyAnswers.SomewhatBed:
+      return 'Mostly in bed'
+    case EnergyAnswers.MostlyBed:
+      return 'Stuck in bed, except for toilet'
+    case EnergyAnswers.StuckInBed:
+      return "Can't get out of bed"
   }
 }

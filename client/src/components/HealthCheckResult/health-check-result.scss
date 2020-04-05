@@ -14,10 +14,18 @@
   }
 
   &__content {
+    position: relative;
+
     h2 {
       font-size: 2rem;
       margin-bottom: 3rem;
       max-width: 270px;
+    }
+
+    h2 + img {
+      position: absolute;
+      right: 0;
+      top: 0;
     }
 
     h3 {

@@ -2,9 +2,11 @@ import React from 'react'
 
 import {
   CoughAnswers,
-  BreathingProblemAnsers
+  BreathingProblemAnsers,
+  EnergyAnswers
 } from '../../../../enums/HealthCheckAnswers'
 import HealthCheckNames from '../../../../enums/HealthCheckNames'
+import stayHomeImageSrc from '../../../../res/stay-home-result.png'
 import { answerToText } from '../../../../utils/answerToText'
 import { questionNameToText } from '../../../../utils/nameToText'
 
@@ -25,6 +27,8 @@ export default function SelfIsolateResult({
         return value > CoughAnswers.No
       case HealthCheckNames.BreathingProblem:
         return value > BreathingProblemAnsers.No
+      case HealthCheckNames.Energy:
+        return value > EnergyAnswers.Tired
     }
 
     return false
@@ -33,6 +37,8 @@ export default function SelfIsolateResult({
   return (
     <div>
       <h2 style={{ maxWidth: 200 }}>Self isolate at home</h2>
+
+      <img src="/stay-home-result.png" />
 
       <h3>Your symptons</h3>
       <ul>
