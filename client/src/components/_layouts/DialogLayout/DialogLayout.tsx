@@ -7,6 +7,8 @@ import useOnMount from '../../../hooks/useOnMount'
 import useOnUnmount from '../../../hooks/useOnUnmount'
 import RoundButton from '../../_buttons/RoundButton'
 
+import DialogLayoutContext from './DialogLayout.context'
+
 export interface DialogLayoutProps {
   notInPageLayout?: boolean
 
@@ -50,19 +52,21 @@ export default function DialogLayout({
   }
 
   return (
-    <div
-      className={classNames(
-        'dialog-layout',
-        hasMounted && 'dialog-layout--has-mounted',
-        className
-      )}
-    >
-      <RoundButton
-        className="dialog-layout__close"
-        onClick={onCloseClick}
-      ></RoundButton>
+    <DialogLayoutContext.Provider value={{ closeDialog: onCloseClick }}>
+      <div
+        className={classNames(
+          'dialog-layout',
+          hasMounted && 'dialog-layout--has-mounted',
+          className
+        )}
+      >
+        <RoundButton
+          className="dialog-layout__close"
+          onClick={onCloseClick}
+        ></RoundButton>
 
-      <div className="dialog-layout__content">{children}</div>
-    </div>
+        <div className="dialog-layout__content">{children}</div>
+      </div>
+    </DialogLayoutContext.Provider>
   )
 }

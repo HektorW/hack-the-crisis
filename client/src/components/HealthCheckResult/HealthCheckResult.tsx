@@ -1,29 +1,53 @@
 import React from 'react'
 
-import './health-check-result.scss'
 import { CoughAnswers } from '../../enums/HealthCheckAnswers'
 import HealthCheckNames from '../../enums/HealthCheckNames'
+import PrimaryButton from '../_buttons/PrimaryButton'
+import { useCloseDialog } from '../_layouts/DialogLayout/DialogLayout.hooks'
+
+import SelfIsolateResult from './_results/SelfIsolateResult'
+
+import './health-check-result.scss'
 
 interface HealthCheckResultProps {
   result: Record<string, any>
+
+  onRepeat: () => void
 }
 
-export default function HealthCheckResult({ result }: HealthCheckResultProps) {
-  const coughResult = result[HealthCheckNames.Coughing]
+export default function HealthCheckResult({
+  result,
 
-  if (coughResult === CoughAnswers.No) {
-    return <div>You are not coughing. All good and healthy</div>
-  }
+  onRepeat
+}: HealthCheckResultProps) {
+  const closeDialog = useCloseDialog()
 
-  if (coughResult === CoughAnswers.Sometimes) {
-    return <div>You are coughing sometimes. Take some care</div>
-  }
+  // TODO : Some logic selecting right thing
+  const ResultComponent = SelfIsolateResult
 
-  if (coughResult === CoughAnswers.Often) {
-    return <div>You cough often. Call 1177</div>
-  }
+  return (
+    <div className="health-check-result">
+      <div className="health-check-result__title">Your results</div>
 
-  if (coughResult === CoughAnswers.AllTheTime) {
-    return <div>You cough all the time. Call 112</div>
-  }
+      <div className="health-check-result__content">
+        <ResultComponent result={result} />
+      </div>
+
+      <div className="health-check-result__buttons">
+        <PrimaryButton
+          className="health-check-result__repeat"
+          onClick={onRepeat}
+        >
+          Repeat test
+        </PrimaryButton>
+
+        <PrimaryButton
+          className="health-check-result__done"
+          onClick={closeDialog}
+        >
+          Done
+        </PrimaryButton>
+      </div>
+    </div>
+  )
 }
