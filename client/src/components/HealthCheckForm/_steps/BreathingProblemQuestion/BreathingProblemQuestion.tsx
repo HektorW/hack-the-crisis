@@ -8,12 +8,22 @@ export default function BreathingProblemQuestion() {
   return (
     <ConversationFormRadioQuestion<BreathingProblemAnsers>
       name={HealthCheckNames.BreathingProblem}
-      heading="Do you have trouble breathing?"
+      heading="Do you experience breathing problems?"
       options={[
         { text: 'No', value: BreathingProblemAnsers.No },
-        { text: 'Light effort', value: BreathingProblemAnsers.LightEffort },
-        { text: 'Some effort', value: BreathingProblemAnsers.SomeEffort },
-        { text: 'Large effort', value: BreathingProblemAnsers.LargeEffort }
+        {
+          text:
+            'Yes, I get shortness of breath with light effort but not at rest',
+          value: BreathingProblemAnsers.LightEffort
+        },
+        {
+          text: 'I feel a certain shortness of breath during rest',
+          value: BreathingProblemAnsers.SomeEffort
+        },
+        {
+          text: 'I have shortness of breath all the time',
+          value: BreathingProblemAnsers.LargeEffort
+        }
       ]}
     />
   )

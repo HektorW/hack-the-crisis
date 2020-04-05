@@ -9,8 +9,9 @@ export default function PulseQuestion() {
   return (
     <TimedCountingQuestion
       heading="Determining Heart Rate"
+      resultHeading="How many heart beats did you get?"
       name={HealthCheckNames.Pulse}
-      inputPlaceholder="Enter your pulse"
+      inputPlaceholder="Enter your heart beats"
       resultText="Now enter your pulse"
     >
       <p>1. Try to be as relaxed as possible</p>

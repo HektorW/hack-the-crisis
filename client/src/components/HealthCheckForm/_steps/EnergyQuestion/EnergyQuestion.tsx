@@ -8,13 +8,19 @@ export default function EnergyQuestion() {
   return (
     <ConversationFormRadioQuestion<EnergyAnswers>
       name={HealthCheckNames.Energy}
-      heading="How is your energy?"
+      heading="How is your general energy?"
       options={[
         { text: 'As usual', value: EnergyAnswers.AsUsual },
-        { text: 'Tired but ok', value: EnergyAnswers.Tired },
-        { text: 'Somewhat bed', value: EnergyAnswers.SomewhatBed },
-        { text: 'Mostly bed', value: EnergyAnswers.MostlyBed },
-        { text: 'Stuck in bed', value: EnergyAnswers.StuckInBed }
+        { text: 'Tired but able to get up', value: EnergyAnswers.Tired },
+        {
+          text: 'Mostly bedridden but can be up longer',
+          value: EnergyAnswers.SomewhatBed
+        },
+        {
+          text: 'Can only lie in bed, but can go to the toilet',
+          value: EnergyAnswers.MostlyBed
+        },
+        { text: "Don't get out of bed", value: EnergyAnswers.StuckInBed }
       ]}
     />
   )

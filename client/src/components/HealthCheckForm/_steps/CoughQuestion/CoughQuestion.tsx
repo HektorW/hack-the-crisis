@@ -8,12 +8,12 @@ export default function CoughQuestion() {
   return (
     <ConversationFormRadioQuestion<CoughAnswers>
       name={HealthCheckNames.Coughing}
-      heading="Have you recently started coughing?"
+      heading="Have you recently started to cough?"
       options={[
         { text: 'No', value: CoughAnswers.No },
-        { text: 'Sometimes', value: CoughAnswers.Sometimes },
-        { text: 'Often', value: CoughAnswers.Often },
-        { text: 'All the time', value: CoughAnswers.AllTheTime }
+        { text: 'Yes, sometimes', value: CoughAnswers.Sometimes },
+        { text: 'Yes, often', value: CoughAnswers.Often },
+        { text: 'Yes, all the time', value: CoughAnswers.AllTheTime }
       ]}
     />
   )
