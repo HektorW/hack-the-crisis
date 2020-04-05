@@ -11,10 +11,16 @@ import './timed-counting-question.scss'
 interface TimedCountingQuestionProps
   extends Omit<ConversationFormQuestionProps, 'value'> {
   inputPlaceholder?: string
+  resultHeading?: string
+  resultText?: string
 }
 
 export default function TimedCountingQuestion({
+  heading,
+
   inputPlaceholder = '',
+  resultText,
+  resultHeading,
 
   children,
 
@@ -29,8 +35,14 @@ export default function TimedCountingQuestion({
 
   const shouldShowStart = !hasStarted
   const shouldShowCountdown = hasStarted && !isCountdownFinished
-  const shouldShowTimer = hasStarted && isCountdownFinished && !isTimerFinished
-  const shouldShowRestart = hasStarted && isCountdownFinished && isTimerFinished
+  const shouldShowTimer = hasStarted && !isTimerFinished
+  const shouldShowInput = hasStarted && isCountdownFinished && isTimerFinished
+  // const shouldShowRestart = hasStarted && isCountdownFinished && isTimerFinished
+
+  const isTimerRunning = hasStarted && isCountdownFinished
+
+  const renderHeading =
+    shouldShowInput && resultHeading ? resultHeading : heading
 
   function onInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const elementValue = event.currentTarget.value
@@ -49,6 +61,12 @@ export default function TimedCountingQuestion({
     setIsTimerFinished(false)
   }
 
+  function onRestartClick() {
+    setHasStarted(false)
+    setIsCountdownFinished(false)
+    setIsTimerFinished(false)
+  }
+
   function onCountdownFinish() {
     setIsCountdownFinished(true)
   }
@@ -60,40 +78,75 @@ export default function TimedCountingQuestion({
   return (
     <ConversationFormQuestion
       className="timed-counting-question"
+      heading={renderHeading}
       value={numberValue === 0 ? null : numberValue}
       {...questionProps}
     >
-      <input
-        className="timed-counting-question__input"
-        type="number"
-        placeholder={inputPlaceholder}
-        value={inputValue}
-        step={1}
-        min={0}
-        onChange={onInputChange}
-      />
+      {shouldShowInput && (
+        <>
+          <input
+            className="timed-counting-question__input"
+            type="number"
+            placeholder={inputPlaceholder}
+            value={inputValue}
+            step={1}
+            min={0}
+            onChange={onInputChange}
+          />
 
-      <div className="timed-counting-question__description">{children}</div>
-
-      <div className="timed-counting-question__timers">
-        {shouldShowStart && (
-          <SecondaryButton onClick={onStartClick}>Start test</SecondaryButton>
-        )}
-
-        {shouldShowCountdown && (
-          <AutomaticTimer timeS={5} onDone={onCountdownFinish} />
-        )}
-
-        {shouldShowTimer && (
-          <RoundTimer timeS={30} autoStart onDone={onTimerFinish} />
-        )}
-
-        {shouldShowRestart && (
-          <SecondaryButton onClick={onStartClick}>
-            Restart timer
+          <SecondaryButton
+            className="timed-counting-question__restart"
+            onClick={onRestartClick}
+          >
+            Run again
           </SecondaryButton>
-        )}
-      </div>
+        </>
+      )}
+
+      {!shouldShowInput && (
+        <>
+          <div className="timed-counting-question__description">{children}</div>
+
+          <div className="timed-counting-question__timers">
+            {shouldShowStart && (
+              <SecondaryButton onClick={onStartClick}>
+                Start timer
+              </SecondaryButton>
+            )}
+
+            {shouldShowCountdown && (
+              <AutomaticTimer
+                className="timed-counting-question__countdown-timer"
+                timeS={5}
+                onDone={onCountdownFinish}
+              />
+            )}
+
+            {shouldShowTimer && (
+              <RoundTimer
+                className="timed-counting-question__round-timer"
+                timeS={5}
+                run={isTimerRunning}
+                onDone={onTimerFinish}
+              />
+            )}
+
+            {/* {shouldShowRestart && (
+              <>
+                {resultText && (
+                  <p className="timed-counting-question__result-text">
+                    {resultText}
+                  </p>
+                )}
+
+                <SecondaryButton onClick={onStartClick}>
+                  Run timer again
+                </SecondaryButton>
+              </>
+            )} */}
+          </div>
+        </>
+      )}
     </ConversationFormQuestion>
   )
 }

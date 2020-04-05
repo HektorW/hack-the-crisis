@@ -12,18 +12,18 @@ export default function HealthCheckResult({ result }: HealthCheckResultProps) {
   const coughResult = result[HealthCheckNames.Coughing]
 
   if (coughResult === CoughAnswers.No) {
-    return <div>All good and healthy</div>
+    return <div>You are not coughing. All good and healthy</div>
   }
 
   if (coughResult === CoughAnswers.Sometimes) {
-    return <div>Take some care</div>
+    return <div>You are coughing sometimes. Take some care</div>
   }
 
   if (coughResult === CoughAnswers.Often) {
-    return <div>Call 1177</div>
+    return <div>You cough often. Call 1177</div>
   }
 
   if (coughResult === CoughAnswers.AllTheTime) {
-    return <div>Call 112</div>
+    return <div>You cough all the time. Call 112</div>
   }
 }

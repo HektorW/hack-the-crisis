@@ -11,6 +11,7 @@ export default function PulseQuestion() {
       heading="Determining Heart Rate"
       name={HealthCheckNames.Pulse}
       inputPlaceholder="Enter your pulse"
+      resultText="Now enter your pulse"
     >
       <p>1. Try to be as relaxed as possible</p>
 

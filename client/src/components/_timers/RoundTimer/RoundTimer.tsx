@@ -9,7 +9,7 @@ import './round-timer.scss'
 
 interface RoundTimerProps {
   timeS: number
-  autoStart?: boolean
+  run: boolean
 
   className?: string
 
@@ -18,13 +18,13 @@ interface RoundTimerProps {
 
 export default function RoundTimer({
   timeS,
-  autoStart,
+  run,
 
   className,
 
   onDone
 }: RoundTimerProps) {
-  const { isRunning, currentTimeMs, progress, start, toggle } = useTimer(
+  const { isRunning, currentTimeMs, progress, start, stop, toggle } = useTimer(
     timeS,
     onDone
   )
@@ -36,11 +36,21 @@ export default function RoundTimer({
     circlePathLengthRef.current = circleRef.current.getTotalLength()
   })
 
-  useOnMount(() => {
-    if (autoStart) {
+  useEffect(() => {
+    if (run && !isRunning) {
       start()
     }
-  })
+
+    if (!run && isRunning) {
+      stop()
+    }
+  }, [run, isRunning])
+
+  // useOnMount(() => {
+  //   if (autoStart) {
+  //     start()
+  //   }
+  // })
 
   function onButtonClick() {
     toggle()

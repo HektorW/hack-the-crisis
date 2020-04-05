@@ -1,18 +1,30 @@
 @use '../../../styles/values/colors' as colors;
 
 .timed-counting-question {
+  &__input,
+  &__restart {
+    animation: fade-in .2s ease-out;
+  }
+
   &__input {
     background: 0;
     border: 0;
     border-bottom: 1px solid colors.$main--blue;
     color: colors.$main--blue;
     font-size: 1.3rem;
+    margin-top: 1rem;
     padding-bottom: 0.5rem;
     width: 100%;
   }
 
+  &__restart {
+    display: block;
+    margin: 3rem auto 0;
+  }
+
+
   &__description {
-    margin-top: 2rem;
+    // margin-top: 2rem;
 
     p {
       font-size: 1.2rem;
@@ -30,9 +42,26 @@
   &__timers {
     align-items: center;
     display: flex;
+    flex-direction: column;
     height: 150px;
     margin-top: 3rem;
     justify-content: center;
+    position: relative;
     text-align: center;
+  }
+
+  &__countdown-timer {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__round-timer {
+    animation: fade-in .2s ease-out;
+  }
+
+  &__result-text {
+    margin-bottom: 1rem;
   }
 }
