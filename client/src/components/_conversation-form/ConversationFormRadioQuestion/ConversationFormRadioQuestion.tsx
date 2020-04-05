@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
+import { Transition } from 'react-spring/renderprops'
 import ConversationFormQuestion from '../ConversationFormQuestion'
 import { ConversationFormQuestionProps } from '../ConversationFormQuestion/ConversationFormQuestion'
 import {
@@ -56,11 +57,18 @@ export default function ConversationFormRadioQuestion<T = any>({
       {...questionProps}
     >
       <ul className="radio-question__list">
-        {options.map(option => {
-          const optionId = `${name}-${option.value}`
 
+      <Transition
+          items={options} keys={item => item.value.toString()}
+          trail={150}
+          from={{ opacity:0, transform: 'translate3d(0,-40px,0)' }}
+          enter={{ opacity:1, transform: 'translate3d(0,0px,0)' }}
+          leave={{ transform: 'translate3d(0,-40px,0)' }}
+      >
+        {option => props => {
+          const optionId = `${name}-${option.value}`
           return (
-            <li key={option.value} className="radio-question__option">
+            <li style={props} className="radio-question__option">
               <label
                 className="radio-question__option-label"
                 htmlFor={optionId}
@@ -85,7 +93,8 @@ export default function ConversationFormRadioQuestion<T = any>({
               </label>
             </li>
           )
-        })}
+        }}
+      </Transition>
       </ul>
     </ConversationFormQuestion>
   )
