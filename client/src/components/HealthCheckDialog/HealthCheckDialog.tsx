@@ -19,12 +19,12 @@ interface HealthCheckDialogProps
 export default function HealthCheckDialog({
   ...dialogLayoutProps
 }: HealthCheckDialogProps) {
-  // const [result, setResult] = useState(null)
-  const [result, setResult] = useState({
-    [HealthCheckNames.Coughing]: CoughAnswers.Often,
-    [HealthCheckNames.BreathingProblem]: BreathingProblemAnsers.LargeEffort,
-    [HealthCheckNames.Energy]: EnergyAnswers.MostlyBed
-  })
+  const [result, setResult] = useState(null)
+  // const [result, setResult] = useState({
+  //   [HealthCheckNames.Coughing]: CoughAnswers.Often,
+  //   [HealthCheckNames.BreathingProblem]: BreathingProblemAnsers.LargeEffort,
+  //   [HealthCheckNames.Energy]: EnergyAnswers.MostlyBed
+  // })
 
   const dispatchSelfReport = useDispatchSelfReport()
 
