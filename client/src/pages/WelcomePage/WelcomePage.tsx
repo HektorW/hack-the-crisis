@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useFirebase } from 'react-redux-firebase'
 import { Link, useHistory } from 'react-router-dom'
 
+import Card from '../../components/Card'
 import Chart from '../../components/Chart'
 import HealthCheckDialog from '../../components/HealthCheckDialog'
 import PrimaryButton from '../../components/_buttons/PrimaryButton'
@@ -67,6 +68,10 @@ export default function WelcomePage() {
           >
             Start check-in
           </SecondaryButton>
+
+          <div>
+            <Card>Some content</Card>
+          </div>
 
           {showHealthCheck && (
             <HealthCheckDialog onClose={onCloseHealthCheckClick} />

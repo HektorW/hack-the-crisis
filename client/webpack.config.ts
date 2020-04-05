@@ -3,6 +3,7 @@
 import { join } from 'path'
 
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import dotenvFlow from 'dotenv-flow'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
@@ -104,6 +105,8 @@ const config: Configuration = {
   plugins: [
     // @ts-ignore
     new CleanWebpackPlugin(),
+
+    new CopyWebpackPlugin([{ from: '../public', to: '' }]),
 
     // @ts-ignore
     new HtmlWebpackPlugin({
